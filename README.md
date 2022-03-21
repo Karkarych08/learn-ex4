@@ -5,32 +5,7 @@ Ex from my University
 «Технологии и методы программирования»
 Цель работы: провести анализ текстов сочинений Ленина, используя классы из
 пакета коллекций.
-Тексты хранятся в файле lenin.txt в кодировке UTF-8. Получить список слов из
-файла можно с помощью метода getAllWords, записать список строк результата
-можно методом writeResultToFile.
-/**
-Метод для получения списка слов из текстового файла в кодировке
-UTF-8
-@param filename Строка, содержащая путь к файлу
-@return Список слов
-*/
-private static List<String> getWords(String filename) throws IOException
-{
-var splitter = Pattern.compile("[\\p{Punct}\\d\\s«…»–]+");
-return Files.lines(Path.of(filename))
-.flatMap(splitter::splitAsStream)
-.filter(w -> ! w.isEmpty())
-.collect(Collectors.toList());
-}
-/**
-Метод для записи списка строк в текстовый файл в кодировке UTF-8
-@param filename Строка, содержащая путь к файлу
-@param lines Список строк для записи
-*/
-private static void writeResultToFile(String filename, List<String>
-lines) throws IOException {
-Files.write(Path.of(filename), lines);
-}
+Тексты хранятся в файле lenin.txt в кодировке UTF-8. 
 Задачи («…» означает, что должны быть выполнены условия и предыдущего
 пункта тоже, то есть условие текущего пункта дополняет предыдущее):
 1) Составить список всех уникальных слов без учета регистра (слово состоит
